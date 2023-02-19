@@ -1,4 +1,15 @@
-# Jekyll Curate Docs
+# Jekyll Curate Pro Docs
+
+Develop by [Cyberassemble](https://github.com/cyberassemble).
+
+Join our telegram channel [CYBERASSEMBLE](https://t.me/cyberassemble)
+
+### Support us by donate BTC
+
+BTC Address
+```
+3JMLc8iTVnQKgYyNNpqXRZbqkDw4Xp5fLW
+```
 
 # Table of Contents
 
@@ -7,6 +18,10 @@
    * [Logo](#logo)
    * [Header](#header)
    * [Dark Mode](#dark-mode)
+   * [Comments](#comments)
+   * [Newsletter](#newsletter)
+   * [Footer](#footer)
+   * [Main Menu](#main-menu)
    
 # Install
 
@@ -123,10 +138,10 @@ This theme has a versatile header that can be static or fixed.
 
     # _config.yml
     ...
-    
+```yml
     header: 
       fixed: true
-    
+```
 
 ### Animate on scroll
 
@@ -137,13 +152,13 @@ Setting the header to fixed will enable animate on scroll.
 Dark mode is enabled by default. Dark mode can be disabled in `_config.yml`
 
     # _config.yml
-    
+```yml 
     darkmode:
       enable_dark_mode: true
       show_dark_mode_toggle_in_header: true 
-      show_dark_mode_toggle_in_bottom: false # displays the dark mode toggle switch in the footer and allows the user to manually change the mode
+show_dark_mode_toggle_in_bottom: false # displays the dark mode toggle switch in the footer and allows the user to manually change the mode
       show_dark_mode_toggle_in_mobile_menu: false # displays the dark mode toggle switch in the footer and allows the user to manually change the mode
-    
+```
 
 ### Automatic Dark Mode
 
@@ -156,3 +171,240 @@ Try changing your dark mode preference in OSX.
 ### Dark Mode logic
 
 If a user specifically toggles to dark or light mode this preference will be remembered and **will override the system preference**. This setting is stored in the users sessionStorage ([Mozilla Docs - sessionStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)) which means the preference is remembered across pages and page reloads, until the user closes their browser or clears their cache.
+
+
+#
+
+2 different contact forms are available on the contact page.
+
+Netlify Form
+------------
+
+By default the theme uses [Netlify forms](https://www.netlify.com/products/forms/). If you are hosting your site on Netlify and have `use_netlify_form` enabled the form will work automatically with Netlify forms.
+
+    # _config.yml
+```yml 
+    contact_form: 
+      use_netlify_form: true
+      use_formspree_form: false
+      formspree_endpoint: ""
+```
+
+Formspree
+---------
+
+You can optionally turn on Formspree forms. disable Netlify forms and add your formspree endpoint for the form your created in formspree.
+
+    # _config.yml
+```yml   
+    contact_form: 
+      use_netlify_form: false
+      use_formspree_form: true
+      formspree_endpoint: https://formspree.io/f/moqyklqv
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+# Comment
+
+Comments are powered by [Disqus](https://disqus.com/)
+
+Comments can be enabled on blog posts by adding your disqus shortname to the `_config.yml`
+
+    # _config.yml
+```yml
+    disqus:
+      shortname: "zerostatic" # Your disqus shortcode. leave this blank to disable comments globally
+``
+    
+
+Comments Per Post
+-----------------
+
+Comments can be disabled on a per post basis. In the blog posts frontmatter set `comments: false`
+
+    # collections/_posts/2021-07-20-targeting-keywords-for-traffic.md
+    ---
+    ...
+    comments: false
+    ---
+    
+# Newsletter
+
+Newsletter subscription is powered by [Mailchimp](https://mailchimp.com/)
+
+The subscrine box can be enabled on the homepage and blog posts by adding your mailchimp form url to the `_config.yml`
+
+Note that you must explicity enable the subcribe box on each page.
+
+    # _config.yml
+```yml
+    mailchimp:
+      form_action_url: https://zerostatic.us13.list-manage.com/subscribe/post?u=675276692aebec1c007f8156d&amp;id=3e3da720c2
+```
+    
+
+Comments Per Post
+-----------------
+
+The subscribe box can be enabled on the homepage or any blog post. In the pages frontmatter set `subscribe: true`
+
+    # collections/_posts/2021-07-20-targeting-keywords-for-traffic.md
+    ---
+    ...
+    subscribe: true
+    ---
+
+# Footer
+Footer config
+-------------
+
+There are several options to configure the footer from the `_config.yml`
+
+    # _config.yml
+    ...
+```yml
+    footer:
+      enable_footer: true # show/hide the entire footer
+      footer_title: "Jekyll Curate"
+      footer_description: "Curate is a creative portfolio for Jekyll by Zerostatic Themes."
+      enable_social_media_icons: true
+      enable_menu_footer_primary: true
+      enable_menu_footer_secondary: true
+      enable_menu_footer_tertiary: false
+      footer_primary_menu_title: "Projects"
+      footer_secondary_menu_title: "Agency"
+      footer_tertiary_menu_title: ""
+```
+
+Footer menus
+------------
+
+There are 3 menus available in the footer. You can add links to footer menus by editing `_data/menu.yml`
+
+    # _data/menu.yml
+```yml
+    footer_primary:
+      - name: Services
+        url: /services/
+        weight: 2
+      - name: Work
+        url: /work/
+        weight: 3
+      - name: Team
+        url: /team/
+        weight: 4
+    footer_secondary:
+      - name: Blog
+        url: /posts/
+        weight: 1
+      - name: About
+        url: /about/
+        weight: 2
+      - name: Privacy Policy
+        url: /privacy/
+        weight: 3
+      - name: Terms and Conditions
+        url: /terms-and-condition/
+        weight: 4
+    footer_tertiary:
+      - name: Contact
+        url: /contact/
+        weight: 1
+      - name: Buy Now
+        url: https://www.zerostatic.io/theme/jekyll-advance/
+        weight: 2
+```
+
+# Main Menu
+
+Main Menu config
+----------------
+
+There are several options to configure the footer from the `_config.yml`
+
+    # _config.yml
+    ...
+    
+    menu: 
+      show_dropdown_items_in_mobile_menu: true
+      show_social_media_in_mobile_menu: true
+    
+
+Main menu
+---------
+
+Configure the main menu by editing `_data/menu.yml`
+```yml
+    # _data/menu.yml
+    
+    main:
+      - name: Home
+        url: /
+        weight: 1
+      - name: Projects
+        url: /projects/
+        weight: 2
+        child:
+          - name: "Project Layout 1"
+            icon: "/assets/images/icons/wireframe-7.svg"
+            icon_darkmode: "/assets/images/icons/wireframe-7-white.svg"
+            description: "Default Project layout"
+            url: /projects/project-1/
+          - name: "Project Layout 2"
+            icon: "/assets/images/icons/wireframe-5.svg"
+            icon_darkmode: "/assets/images/icons/wireframe-5-white.svg"
+            description: "Right side layout"
+            url: /projects/project-2/
+          - name: "Project Layout 3"
+            icon: "/assets/images/icons/wireframe-6.svg"
+            icon_darkmode: "/assets/images/icons/wireframe-6-white.svg"
+            description: "Left side layout"
+            url: /projects/project-3/
+          - name: "Project Layout 4"
+            icon: "/assets/images/icons/wireframe-8.svg"
+            icon_darkmode: "/assets/images/icons/wireframe-8-white.svg"
+            description: "Top layout"
+            url: /projects/project-4/
+      - name: Blog
+        url: /blog/
+        weight: 2
+      - name: About
+        url: /about/
+        weight: 3
+      - name: Contact
+        url: /contact/
+        weight: 4
+```
+
+Nested / dropdown menu
+----------------------
+
+The main menu supports nested menus.
+
+For sub menus to work, you need to nest the menu items under the `child` property when editing the `_data/menu.yml`
+
+    # _data/menu.yml
+    main:
+    
+```yml
+      - name: Services
+        url: /services/
+        weight: 1
+        child:
+        - name: "Web Development"
+          url: "/services/web-development/"
+        - name: "Web Design"
+          url: "/services/web-design/"
+        - name: "UX"
+          url: "/services/user-experience/"
+        - name: "Branding"
+          url: "/services/branding/"
+    
+```
+Responsive / Mobile Menu
+------------------------
+
+This theme comes with a high quality responsive menu. This menu uses the `main` menu from `_data/menu.yml`.
+
+**[⬆ back to top](#table-of-contents)**
